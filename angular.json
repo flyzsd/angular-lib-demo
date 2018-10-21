@@ -121,6 +121,46 @@
           }
         }
       }
+    },
+    "shudong": {
+      "root": "projects/shudong",
+      "sourceRoot": "projects/shudong/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/shudong/tsconfig.lib.json",
+            "project": "projects/shudong/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/shudong/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/shudong/src/test.ts",
+            "tsConfig": "projects/shudong/tsconfig.spec.json",
+            "karmaConfig": "projects/shudong/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/shudong/tsconfig.lib.json",
+              "projects/shudong/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-lib-demo"
